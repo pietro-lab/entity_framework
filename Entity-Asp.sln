@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.1321
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entity-Asp", "Entity-Asp\Entity-Asp.csproj", "{2170DA75-6587-4F40-A00E-535BD5C6F964}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entity_Asp", "Entity-Asp\Entity_Asp.csproj", "{2170DA75-6587-4F40-A00E-535BD5C6F964}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

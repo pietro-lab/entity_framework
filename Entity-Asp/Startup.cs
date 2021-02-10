@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
+using Entity_Asp.Models;
 
 namespace Entity_Asp
 {
@@ -24,6 +26,7 @@ namespace Entity_Asp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<ProdutoContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ConnectionSql")));
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
@@ -36,7 +39,7 @@ namespace Entity_Asp
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ProdutoContext context)
         {
             if (env.IsDevelopment())
             {
@@ -58,6 +61,7 @@ namespace Entity_Asp
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+            Inicializar_banco.Initialize(context);
         }
     }
 }
